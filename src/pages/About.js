@@ -1,4 +1,6 @@
 import React from "react";
+import profilePicture from '../components/images/profile-picture.jpg';
+
 
 const About = () => {
   return (
@@ -26,7 +28,7 @@ const About = () => {
 
         <section className="about-section">
           <div className="profile-picture">
-            <img src="../components/images/profile-picture.jpg" alt="Profile" />
+            <img src={profilePicture} alt="Profile" />
             <h1>Alexander</h1>
           </div>
           <div className="about-text">
@@ -45,7 +47,7 @@ const About = () => {
 
         <section className="about-section">
           <div className="profile-picture">
-            <img src="../components/images/profile-picture.jpg" alt="Profile" />
+          <img src={profilePicture} alt="Profile" />
             <h1>Roberta</h1>
           </div>
           <div className="about-text">
@@ -64,7 +66,7 @@ const About = () => {
 
         <section className="about-section">
           <div className="profile-picture">
-            <img src="../components/images/profile-picture.jpg" alt="Profile" />
+          <img src={profilePicture} alt="Profile" />
             <h1>Laura</h1>
           </div>
           <div className="about-text">
@@ -83,7 +85,7 @@ const About = () => {
 
         <section className="about-section">
           <div className="profile-picture">
-            <img src="../components/images/profile-picture.jpg" alt="Profile" />
+          <img src={profilePicture} alt="Profile" />
             <h1>Kunmi</h1>
           </div>
           <div className="about-text">

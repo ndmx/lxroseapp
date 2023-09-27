@@ -1,35 +1,47 @@
 /* Reset & General */
-html,body,h1,h2,p,button,a {margin:0;padding:0;border:0;}
-body {background-color:#f4f4f4;font-family:"Book Antiqua",Palatino,"Palatino Linotype",serif;background-size:cover;background-position:center;background-color:grey;padding-bottom:60px;}
+html, body, h1, h2, p, button, a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body {
+  background-color: #f4f4f4;
+  font-family: "Book Antiqua", Palatino, "Palatino Linotype", serif;
+  background-size: cover;
+  background-position: center;
+  background-color: grey;
+  padding-bottom: 60px;
+}
 
 /* Typography */
-h1,h2,h3,h4,h5,h6,p {font-family:"Book Antiqua",Palatino,"Palatino Linotype",serif;text-align:center;color:white;}
-h1 {font-size:2.5em;margin-bottom:.5em;}
-h2 {font-size:1.8em;margin-bottom:.5em;}
-p {font-size:1.3em;line-height:1.6;margin-bottom:1em;}
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Book Antiqua", Palatino, "Palatino Linotype", serif;
+  text-align: center;
+  color: white;
+}
+h1 {font-size: 2.5em;margin-bottom: .5em;}
+h2 {font-size: 1.8em;margin-bottom: .5em;}
+p {font-size: 1.3em;line-height: 1.6;margin-bottom: 1em;}
 
 /* Buttons & Links */
-button,#joinUsBtn {padding:10px 20px;font-size:1em;cursor:pointer;transition:background-color .3s;}
-button {background-color:#00cc99;color:white;}
-button:hover {background-color:#0056b3;}
-#joinUsBtn {background-color:#00cc99;color:white;border:none;border-radius:5px;}
-#joinUsBtn:hover {background-color:#009966;transform:scale(1.05);}
-.center-button {display:block;margin-left:auto;margin-right:auto;}
-.center-button a {color:white;}
-a {text-decoration:none;color:#007bff;transition:color .3s;}
-a:hover {color:#0056b3;}
+button, #joinUsBtn {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+button {background-color: #00cc99;color: white;}
+button:hover {background-color: #0056b3;}
 
 /* Banners & Containers */
-.banner {background-position:center;background-repeat:no-repeat;background-size:cover;min-height:500px;position:relative;width:100%;}
-#home-banner {background-image:url("./components/images/horizon.jpg");}
-#home-banner2 {background-image:url("./components/images/mental.jpg");}
-#home-banner3 {background-image:url("./components/images/nurse-with-child.png");}
-#home-banner4 {background-image:url("./components/images/team.jpg");}
-#home-banner5 {background-image:url("./components/images/sunset-water.jpg");}
-.container {position:absolute;bottom:0;left:0;right:0;text-align:center;}
-.header-text {display:inline-block;vertical-align: bottom;}
-.header-text h1 {margin:0;padding:0;color:white;font-size:3em;}
-
+.banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 500px;
+  position: relative;
+  width: 100%;
+}
 .banner::before {
   content: "";
   position: absolute;
@@ -37,10 +49,9 @@ a:hover {color:#0056b3;}
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-
 .container {
   position: absolute;
   bottom: 0;
@@ -49,6 +60,42 @@ a:hover {color:#0056b3;}
   text-align: center;
   z-index: 2;
 }
+.header-text {
+  display: inline-block;
+  vertical-align: bottom;
+}
+.header-text h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  .header-text h1 {font-size: 2em;}
+  .banner {min-height: 300px;}
+  /* Navbar scaling */
+  #mainHeader {flex-direction: column;height: auto;}
+  nav ul {padding-top: 20px;flex-direction: column;}
+  nav li {margin-bottom: 10px;}
+}
+
+@media only screen and (max-width: 480px) {
+  .header-text h1 {font-size: 1.5em;}
+  .banner {min-height: 200px;}
+  /* Popup scaling */
+  .popup, .blur {width: 90%;max-width: none;padding: 40px;}
+  .popup-content {width: 95%;max-width: none;height: auto;max-height: none;}
+}
+
+#home-banner {background-image: url("./components/images/horizon.jpg");}
+#home-banner2 {background-image: url("./components/images/mental.jpg");}
+#home-banner3 {background-image: url("./components/images/nurse-with-child.png");}
+#home-banner4 {background-image: url("./components/images/team.jpg");}
+#home-banner5 {background-image: url("./components/images/sunset-water.jpg");}
+
 
 /* Header & Nav */
 #mainHeader {background-color:#333;color:white;position:fixed;top:0;left:0;width:100%;height:90px;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:0 0px;flex-wrap:wrap;}
@@ -64,9 +111,36 @@ nav li {display:inline-block;flex:1;margin:0px 20px;}
 nav a {color:white;text-decoration:none;transition:color .3s;font-size:1.35em;}
 nav a:hover {color:red;}
 
+#joinUsBtn {
+  background-color: #00cc99;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#joinUsBtn:hover {
+  background-color: #009966;
+  transform: scale(1.05);
+}
+.center-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center-button a {
+  color: white;
+}
+a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color .3s;
+}
+a:hover {
+  color: #0056b3;
+}
+
 /* Popup */
-.blur,.popup {position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:80%;max-width:200px;padding:220px;border:2px solid #ccc;background-color:grey;box-shadow:0px 0px 10px 0px #000;background-size:cover;background-position:center;backdrop-filter:blur(10px);}
-.popup {background-color:rgba(255,255,255,.3);z-index:1;}
+.blur,.popup {position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:80%;max-width:200px;padding:220px;border:2px solid #ccc;background-color:grey;box-shadow:0px 0px 10px 0px #000;background-size:cover;background-position:center;backdrop-filter:blur(10px);}
+.popup {background-color:rgba(255,255,255,.3);z-index:4;}
 .blur.hidden {display:none;}
 .popup-content {background-image:url("./components/images/sunset-water.jpg");position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;width:80%;max-width:600px;height:80%;max-height:600px;overflow:auto;padding:20px;background-color:#fff;box-shadow:0px 0px 10px 0px #000;}
 .popup-content button {border-radius:7px;margin-left:12px;}
@@ -81,15 +155,50 @@ nav a:hover {color:red;}
 .form-group input {width:100%;padding:10px;box-sizing:border-box;}
 input[type="text"],input[type="email"],textarea {width:calc(100% - 5px);padding:.8em;border:1px solid #ccc;border-radius:7px;box-sizing:border-box;max-width:850px;display:block;margin-left:auto;margin-right:auto;}
 #contact-form-btn {margin-left:28rem;border-radius:7px;}
-
-/* About & Footer */
 #message {height:150px;}
 #customAlertContact,#customAlertJoin {border-radius:7px;box-sizing:border-box;justify-content:center;align-items:center;}
 #closeAlertContact,#closeAlertJoin {border:none;font-size:12px;font-weight:bold;cursor:pointer;background:none;}
-.about-section {display:flex;justify-content:space-between;align-items:stretch;height:30vh;margin-top:5px;}
-.profile-picture {flex:0 0 30%;display:flex;flex-direction:column;align-items:center;border:1px solid #ccc;padding:0;background-image:url("./components/images/profile-picture.jpg");background-size:cover;background-position:center;height:100%;margin-top:0;margin-left:5px;}
-.profile-picture img {display:none;}
-.profile-picture h1 {margin-top:1rem;}
+
+/* About & Footer */
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 35vh;
+  margin-top: 5px;
+}
+
+.profile-picture {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #ccc;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  height: 100%; /* 100% of the parent container */
+  max-width: 400px;
+  width: 100%;
+  margin-top: 0;
+  margin-left: 5px;
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.profile-picture img {
+  margin-top: 4px;
+  max-height: 85%; /* Adjust this based on your needs */
+  width: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-picture h1 {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: calc(1.2rem + 0.5vh); /* Responsive font size */
+}
+
 .about-text {flex:0 0 60%;display:block;align-items:center;padding:2rem;}
 .about-text p {margin:0;}
 footer {position:fixed;left:0;bottom:0;width:100%;background-color:#333;color:white;height:60px;z-index:9999;}

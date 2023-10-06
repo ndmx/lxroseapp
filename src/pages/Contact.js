@@ -1,13 +1,15 @@
 import React, { useRef, useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore'; // Import Timestamp
 import { db } from '../firebase';
 
 const handleContactForm = async (name, email, message) => {
   try {
+    const timestamp = Timestamp.fromDate(new Date()); // Firestore's built-in Timestamp
     const docRef = await addDoc(collection(db, 'contactForms'), {
       name,
       email,
       message,
+      timestamp, // Add the timestamp here
     });
     return docRef.id;
   } catch (error) {
@@ -66,7 +68,7 @@ const Contact = () => {
 
       <div id="mainContent" className="contact">
         <section id="contact">
-          <h1>Let's Get in Touch and Transform Your Health Journey</h1>
+          <h2>Let's Get in Touch and Transform Your Health Journey</h2>
           <p>
             We're excited to hear from you! Whether you have a question, want to
             sign up for our services, or are simply curious about how technology
@@ -77,16 +79,13 @@ const Contact = () => {
         <section id="contact-form">
           <form id="contactForm" onSubmit={handleSubmit} disabled={isFormDisabled}>
             <div className="form-group">
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" ref={nameRef} required disabled={isFormDisabled} />
+              <input type="text" placeholder='Name:' id="name" name="name" ref={nameRef} required disabled={isFormDisabled} />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" ref={emailRef} required disabled={isFormDisabled} />
+              <input type="email" placeholder='Email:' id="email" name="email" ref={emailRef} required disabled={isFormDisabled} />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Message:</label>
-              <textarea id="message" name="message" ref={messageRef} required disabled={isFormDisabled}></textarea>
+              <textarea id="message" placeholder='Message:' name="message" ref={messageRef} required disabled={isFormDisabled}></textarea>
             </div>
             <button id="contact-form-btn" type="submit" disabled={isFormDisabled}>
               {isFormDisabled ? 'Submitting...' : 'Submit'}

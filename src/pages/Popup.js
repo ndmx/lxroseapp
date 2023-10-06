@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
 const Popup = () => {
@@ -28,9 +28,14 @@ const Popup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { name, email } = formData;
-
+  
     try {
-      await addDoc(collection(db, 'joinForms'), { name, email });
+      const timestamp = Timestamp.fromDate(new Date()); // Firestore's built-in Timestamp
+      await addDoc(collection(db, 'joinForms'), { 
+        name, 
+        email,
+        timestamp  // Add the timestamp here
+      });
       console.log('popup submitted successfully!');
       setAlertMessage('Thanks for joining');
       setAlertVisible(true);
@@ -38,11 +43,12 @@ const Popup = () => {
       setTimeout(() => {
         setFormData({ name: '', email: '' });
         handleClose();
-        }, 2000);
+      }, 2000);
     } catch (error) {
       showErrorAlert(error);
     }
   };
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -71,9 +77,9 @@ const Popup = () => {
           <h4>Join Us Now</h4>
           <form id="joinForm" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="joinName">Name:</label>
               <input
                 type="text"
+                placeholder='Name:'
                 id="joinName"
                 name="name"
                 required
@@ -82,9 +88,9 @@ const Popup = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="joinEmail">Email:</label>
               <input
                 type="email"
+                placeholder='Email:'
                 id="joinEmail"
                 name="email"
                 required

@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "lxroseinc"
-  }
+  },
+  "targets": {
+    "lxroseinc": {
+      "hosting": {
+        "lxroseinc": [
+          "lxroseinc"
+        ],
+        "lxroseorg": [
+          "lxrose-admin"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

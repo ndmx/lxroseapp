@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import profilePicture from '../components/images/profile-picture.jpg';
-
+import { db } from "../firebase"; // Assuming you've set up Firebase in a separate file
+import { doc, getDoc } from "firebase/firestore";
 
 const About = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  const fetchUserById = async (id) => {
+    const userDocRef = doc(db, 'users', id);
+    const userDocSnapshot = await getDoc(userDocRef);
+
+    if (userDocSnapshot.exists()) {
+      return userDocSnapshot.data();
+    } else {
+      console.error(`No such user with id: ${id}`);
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    const teamMemberIds = ['Alexander', 'Roberta', 'Laura', 'Kunmi'];
+
+    const fetchTeamMembers = async () => {
+      const fetchedMembers = [];
+      for (const id of teamMemberIds) {
+        const member = await fetchUserById(id);
+        if (member) {
+          fetchedMembers.push(member);
+        }
+      }
+      setTeamMembers(fetchedMembers);
+    };
+
+    fetchTeamMembers();
+  }, []);
   return (
     <div>
       <div id="home-banner4" className="banner">
@@ -26,83 +57,17 @@ const About = () => {
           </p>
         </section>
 
-        <section className="about-section">
-          <div className="profile-picture">
-            <img src={profilePicture} alt="Profile" />
-            <h1>Alexander</h1>
-          </div>
-          <div className="about-text">
-            <p>
-              An innovative engineer and designer who excels in merging
-              healthcare and technology. He specializes in transforming
-              intricate medical requirements into streamlined tech applications.
-              His multi-disciplinary approach is shaping the future of
-              healthcare, aiming for user-centric solutions that revolutionize
-              how we interact with healthcare systems. With a keen eye for
-              detail and an unyielding commitment to excellence, He is reshaping
-              the way we perceive and interact with healthcare systems.
-            </p>
-          </div>
-        </section>
-
-        <section className="about-section">
-          <div className="profile-picture">
-          <img src={profilePicture} alt="Profile" />
-            <h1>Roberta</h1>
-          </div>
-          <div className="about-text">
-            <p>
-              Our in-house Nutrition Specialist, passionately advocates for a
-              balanced lifestyle through thoughtful food choices. She focuses on
-              the intrinsic relationship between a healthy body and mind. She
-              has developed dietary programs that embody the phrase, "A healthy
-              body leads to a healthy mind." Offering both preventive and
-              therapeutic nutrition plans, her holistic methods contribute to
-              overall wellness, both physically and mentally. Nutrition isn't
-              just about food
-            </p>
-          </div>
-        </section>
-
-        <section className="about-section">
-          <div className="profile-picture">
-          <img src={profilePicture} alt="Profile" />
-            <h1>Laura</h1>
-          </div>
-          <div className="about-text">
-            <p>
-              Her work centers around creating immersive experiences that prompt
-              meaningful engagement and emotional resonance, making her a vital
-              asset in our holistic approach to health. She employs responsive
-              art techniques to help patients tap into their own psyches. By
-              using visual and mental cues, she opens doors to deeper
-              self-understanding and quicker recovery. With a rich portfolio in
-              psychological art interventions, she has the unique ability to
-              channel therapeutic techniques into visual formats.
-            </p>
-          </div>
-        </section>
-
-        <section className="about-section">
-          <div className="profile-picture">
-          <img src={profilePicture} alt="Profile" />
-            <h1>Kunmi</h1>
-          </div>
-          <div className="about-text">
-            <p>
-              Our versatile In-House Nurse and Healthcare Professional who
-              brings a wealth of experience from various medical settings,
-              including mental health units across Canada. Her deep
-              understanding of patient care, particularly in high-stakes
-              environments, has made her invaluable to both colleagues and
-              patients. Her commitment to patient care is unparalleled, making
-              her a cornerstone in our team. She constantly updates her skill
-              set to stay aligned with best practices, ensuring that our care
-              protocols are both current and effective. she embodies the heart
-              and soul of healthcare.
-            </p>
-          </div>
-        </section>
+        {teamMembers.map((member, index) => (
+          <section className="about-section" key={index}>
+            <div className="profile-picture">
+              <img src={member.imageUrl || profilePicture} alt="Profile" />
+              <h1>{member.username}</h1>
+            </div>
+            <div className="about-text">
+              <p>{member.description}</p> {/* Assuming 'description' field exists in your database */}
+            </div>
+          </section>
+        ))}
 
         <section>
           <p>

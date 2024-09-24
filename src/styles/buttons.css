@@ -1,0 +1,43 @@
+/* General Button Styles */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color .3s;
+  color: white;
+}
+
+/* Unique Button Styles for Sections */
+
+/* Header Button */
+#headerBtn {
+  background-color: #00cc99;
+}
+
+#headerBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Join Us Button */
+#joinUsBtn {
+  background-color: #00cc99;
+  border: none;
+  border-radius: 10px;
+}
+
+#joinUsBtn:hover {
+  background-color: #009966;
+  transform: scale(1.05);
+}
+
+/* Footer Button */
+#footerBtn {
+  background-color: #FF5733;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+}
+
+#footerBtn:hover {
+  background-color: #C70039;
+}

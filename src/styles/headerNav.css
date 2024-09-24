@@ -1,0 +1,47 @@
+/* Header & Nav */
+#mainHeader {
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 90px;
+  max-height: auto;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0px;
+  flex-wrap: wrap;
+}
+
+#logo-img {
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+nav li {
+  display: inline-block;
+  flex: 1;
+  margin: 0px 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  transition: color .3s;
+  font-size: 1.3em;
+}
+
+nav a:hover {
+  color: red;
+}

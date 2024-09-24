@@ -1,0 +1,16 @@
+/* main.css */
+
+/* Import Reset Styles */
+@import url('../styles/general.css');
+
+/* Import Header Styles */
+@import url('../styles/headerNav.css');
+
+/* Import Banner Styles */
+@import url('../styles/bannerContainers.css');
+
+/* Import Button Styles */
+@import url('../styles/buttons.css');
+
+/* Import Footer Styles */
+@import url('../styles/footer.css');

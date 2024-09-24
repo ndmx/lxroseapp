@@ -18,7 +18,6 @@ body {
 h1, h2, h3, h4, h5, h6, p {
   font-family: "Book Antiqua", Palatino, "Palatino Linotype", serif;
   text-align: center;
-  color: white;
 }
 
 h1 {
@@ -91,6 +90,15 @@ button:hover {
   z-index: 1;
 }
 
+.bottom-banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 270px;
+  position: relative;
+  width: 100%;
+}
+
 .container {
   position: absolute;
   bottom: 0;
@@ -112,6 +120,7 @@ button:hover {
   font-size: 2.5em;
   text-align: center;
 }
+
 
 #home-banner {
   background-image: url("./components/images/horizon.jpg");
@@ -141,8 +150,7 @@ button:hover {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 90px;
-  max-height: auto;
+  max-height: 90px;
   z-index: 3;
   display: flex;
   align-items: center;
@@ -151,8 +159,8 @@ button:hover {
   flex-wrap: wrap;
 }
 #logo-img {
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 90px;
   margin: 0;
   padding: 0;
 }
@@ -171,8 +179,8 @@ section {
   padding-bottom: 20px;
   max-width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  background-color: #333;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
   align-items: center;
   margin-bottom: 5px;
   
@@ -184,6 +192,10 @@ section p {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.service-link:hover h2 {
+  color: red; /* Set your desired hover color */
 }
 
 .column1 {
@@ -218,6 +230,22 @@ nav a {
 
 nav a:hover {
   color: red;
+}
+
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
 }
 
 #joinUsBtn {
@@ -320,6 +348,12 @@ a:hover {
 
 .popup.hidden {
   display: none;
+}
+
+#register-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Forms */

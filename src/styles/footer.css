@@ -1,0 +1,50 @@
+/* Footer */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(23, 21, 21);
+  color: white;
+  height: 60px;
+  z-index: 3;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav li {
+  margin: 0 10px;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.footer-nav a:hover {
+  color: red;
+}
+
+/* Footer Buttons */
+#footerBtn {
+  background-color: #FF5733;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+}
+
+#footerBtn:hover {
+  background-color: #C70039;
+}

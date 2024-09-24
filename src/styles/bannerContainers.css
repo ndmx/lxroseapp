@@ -1,0 +1,62 @@
+/* Banners & Containers */
+.banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 500px;
+  position: relative;
+  width: 100%;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.header-text {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.header-text h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+#home-banner {
+  background-image: url("../components/images/horizon.jpg");
+}
+
+#home-banner2 {
+  background-image: url("../components/images/mental.jpg");
+}
+
+#home-banner3 {
+  background-image: url("../components/images/nurse-with-child.png");
+}
+
+#home-banner4 {
+  background-image: url("../components/images/team.jpg");
+}
+
+#home-banner5 {
+  background-image: url("../components/images/sunset-water.jpg");
+}

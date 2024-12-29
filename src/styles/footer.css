@@ -34,17 +34,16 @@ footer {
 }
 
 .footer-nav a:hover {
-  color: red;
+  color: pink;
 }
 
-/* Footer Buttons */
-#footerBtn {
-  background-color: #FF5733;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 20px;
+.copyright-div {
+  padding: 10px;
+  display: flex;
+  align-items: baseline;
 }
 
-#footerBtn:hover {
-  background-color: #C70039;
+.copyright-div p {
+  margin-bottom: 0;
+  color: brown;
 }

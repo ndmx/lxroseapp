@@ -6,7 +6,11 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Footer from './pages/Footer';
 import Popup from './pages/Popup';
-import { useCookieConsent } from './utils/cookies';
+import CookieBanner from './utils/CookieBanner'; // Adjusted import path
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import NutritionServices from './pages/NutritionServices';
+import MentalServices from './pages/MentalServices';
+import NursingServices from './pages/NursingServices';
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -22,8 +26,6 @@ function App() {
     }
   }, []);
 
-  useCookieConsent();
-
   const handleClose = () => {
     setShowPopup(false);
   };
@@ -31,11 +33,16 @@ function App() {
   return (
     <HashRouter>
       <Header />
+      <CookieBanner /> {/* Render Cookie Banner */}
       {showPopup && <Popup handleClose={handleClose} />}
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/mentalservices" element={<MentalServices />} />
+        <Route path="/nutritionservices" element={<NutritionServices />} />
+        <Route path="/nursingservices" element={<NursingServices />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </HashRouter>

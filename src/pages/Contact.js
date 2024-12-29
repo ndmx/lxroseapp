@@ -101,12 +101,6 @@ const Contact = () => {
           </form>
         </section>
       </div>
-
-      <div id="home-banner5" className="banner">
-        <div className="container">
-          <div className="header-text"></div>
-        </div>
-      </div>
     </div>
   );
 };
